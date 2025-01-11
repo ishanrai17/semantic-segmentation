@@ -95,15 +95,15 @@ def build_model(input_shape, num_classes=3, filters=32):
     layer8 = two_decoder(layer7, skip_conn2, filters * 2, False)
     layer9 = two_decoder(layer8, skip_conn1, filters)
 
-    layer10 = tf.keras.layers.Conv2D(filters,
-                     3,
-                     activation='relu',
-                     padding='same',
-                     # set 'kernel_initializer' same as above exercises
-                     kernel_initializer='he_normal')(layer9)
+    # layer10 = tf.keras.layers.Conv2D(filters,
+    #                  3,
+    #                  activation='relu',
+    #                  padding='same',
+    #                  # set 'kernel_initializer' same as above exercises
+    #                  kernel_initializer='he_normal')(layer9)
 
     # Modified output layer for 3-class segmentation
-    output = tf.keras.layers.Conv2D(num_classes, (1, 1), activation='softmax')(layer10)
+    output = tf.keras.layers.Conv2D(num_classes, (1, 1), activation='softmax')(layer9)
 
     lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
         initial_learning_rate=1e-4,
