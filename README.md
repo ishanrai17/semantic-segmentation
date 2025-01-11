@@ -4,24 +4,20 @@ This repository provides a simple setup to experiment with semantic segmentation
 - Data loading utilities
 - Model definitions
 - Training and evaluation scripts
-- Example notebooks
 
-## Features
-1. Customizable data pipeline for segmentation.
-2. Modular model design to fit various use cases.
-3. Comprehensive training loop with validation and logging.
+## Model Description
+A U-Net-based architecture is used to handle multi-class (pet, boundary, background) segmentation. Encoders learn feature representations, while decoders reconstruct segmentation masks for each class.
 
 ## Getting Started
 1. Clone the repository.
-2. Install dependencies from requirements.txt.
-3. Prepare your dataset and update config files.
-4. Run the training script.
+2. Run the training script (in colab).
 
-## Model Description
-A U-Net-based architecture is used to handle multi-class segmentation. Encoders learn feature representations, while decoders reconstruct segmentation masks for each class.
+## Results
+This image belongs to the testing set of the Oxford-IIIT Pet dataset under TensorFlow datasets.
 
-## Contributing
-Feel free to open issues or submit pull requests to improve features.
+![Input](results/sample.png)
 
-## License
-This project is available under the MIT License.
+The classifier outputs a one-hot encoding of 3 classes for each pixel, which we transform into this image.
+
+![Ground Truth](results/sample_result.png)
+

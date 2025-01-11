@@ -60,14 +60,6 @@ def load_oxford_pets_data(image_size=(256, 256)):
         i = 0
         c = 0
         for sample in dataset:
-            if(i <= 0):
-              i+=1
-              continue
-
-            if( c <= 1000 ):
-              c+=1
-            else:
-              break
             image = tf.image.resize(sample['image'], image_size) / 255.0
             mask = tf.image.resize(sample['segmentation_mask'], image_size)
 
@@ -111,7 +103,7 @@ def build_model(input_shape, num_classes=3, filters=32):
                      kernel_initializer='he_normal')(layer9)
 
     # Modified output layer for 3-class segmentation
-    output = tf.keras.layers.Conv2D(num_classes, (1, 1), activation='softmax')(layer9)
+    output = tf.keras.layers.Conv2D(num_classes, (1, 1), activation='softmax')(layer10)
 
     lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
         initial_learning_rate=1e-4,
