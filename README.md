@@ -6,7 +6,7 @@ This repository provides a simple setup to experiment with semantic segmentation
 - Training and evaluation scripts
 
 ## Model Description
-A U-Net-based architecture is used to handle multi-class (pet, boundary, background) segmentation. Encoders learn feature representations, while decoders reconstruct segmentation masks for each class.
+A Convolutional Neural Network based on U-Net architecture used to handle multi-class (pet, boundary, background) segmentation. Encoders learn feature representations, while decoders reconstruct segmentation masks for each class.
 
 ## Getting Started
 1. Clone the repository.
